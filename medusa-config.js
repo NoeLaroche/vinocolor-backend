@@ -96,8 +96,9 @@ const modules = {
 
 /** @type {import('@medusajs/medusa').ConfigModule["projectConfig"]} */
 const projectConfig = {
-  jwt_secret: process.env.JWT_SECRET || "supersecret",
-  cookie_secret: process.env.COOKIE_SECRET || "supersecret",
+  jwt_secret: process.env.JWT_SECRET
+  cookie_secret: process.env.COOKIE_SECRET
+  workerMode: process.env.MEDUSA_WORKER_MODE || "server",
   store_cors: STORE_CORS,
   database_url: DATABASE_URL,
   admin_cors: ADMIN_CORS,
@@ -107,7 +108,6 @@ const projectConfig = {
 /** @type {import('@medusajs/medusa').ConfigModule} */
 module.exports = {
   projectConfig,
-  workerMode: process.env.MEDUSA_WORKER_MODE as "shared" | "worker" | "server",
   admin: {
     backendUrl: process.env.MEDUSA_BACKEND_URL,
     disable: process.env.DISABLE_MEDUSA_ADMIN === "true",
