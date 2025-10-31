@@ -109,6 +109,9 @@ const projectConfig = {
 module.exports = {
   projectConfig,
   workerMode: process.env.MEDUSA_WORKER_MODE as "shared" | "worker" | "server",
+  admin: {
+    disable: process.env.DISABLE_MEDUSA_ADMIN === "true",
+  },
   plugins,
   modules,
 };
