@@ -108,6 +108,7 @@ const projectConfig = {
 /** @type {import('@medusajs/medusa').ConfigModule} */
 module.exports = {
   projectConfig,
+  workerMode: process.env.MEDUSA_WORKER_MODE as "shared" | "worker" | "server",
   plugins,
   modules,
 };
