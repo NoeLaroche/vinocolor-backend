@@ -101,7 +101,6 @@ const projectConfig = {
   store_cors: STORE_CORS,
   database_url: DATABASE_URL,
   admin_cors: ADMIN_CORS,
-  // Uncomment the following lines to enable REDIS
   redis_url: REDIS_URL
 };
 
@@ -110,6 +109,7 @@ module.exports = {
   projectConfig,
   workerMode: process.env.MEDUSA_WORKER_MODE as "shared" | "worker" | "server",
   admin: {
+    backendUrl: process.env.MEDUSA_BACKEND_URL,
     disable: process.env.DISABLE_MEDUSA_ADMIN === "true",
   },
   plugins,
